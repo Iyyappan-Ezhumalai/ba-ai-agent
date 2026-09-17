@@ -233,7 +233,7 @@ def main():
         if provider == "Google Gemini":
             default_key = os.getenv("GEMINI_API_KEY", "")
             api_key = st.text_input("Gemini API Key:", value=default_key, type="password", help="Enter your Google AI Studio API Key")
-            model_name = st.selectbox("Model:", ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-flash"])
+            model_name = st.selectbox("Model:", ["gemini-3.6-flash", "gemini-2.5-pro", "gemini-1.5-flash"])
         else:
             default_key = os.getenv("OPENAI_API_KEY", "")
             api_key = st.text_input("OpenAI API Key:", value=default_key, type="password", help="Enter your OpenAI API Key")
