@@ -228,16 +228,15 @@ def main():
         st.divider()
         st.subheader("🤖 LLM Provider Config")
         
-        provider = st.radio("Select Provider:", ["Google Gemini", "OpenAI"])
-        
-        if provider == "Google Gemini":
-            default_key = os.getenv("GEMINI_API_KEY", "")
-            api_key = st.text_input("Gemini API Key:", value=default_key, type="password", help="Enter your Google AI Studio API Key")
-            model_name = st.selectbox("Model:", ["gemini-3.6-flash", "gemini-2.5-pro", "gemini-1.5-flash"])
-        else:
-            default_key = os.getenv("OPENAI_API_KEY", "")
-            api_key = st.text_input("OpenAI API Key:", value=default_key, type="password", help="Enter your OpenAI API Key")
-            model_name = st.selectbox("Model:", ["gpt-4o", "gpt-4o-mini", "gpt-4-turbo"])
+        provider = st.radio("Select Provider:", ["Groq (Llama 3.3)", "OpenAI"])
+    if provider == "Groq (Llama 3.3)":
+    from openai import OpenAI
+    
+    client = OpenAI(
+        base_url="https://api.groq.com/openai/v1",
+        api_key=api_key
+    )
+    model_name = "llama-3.3-70b-versatile"
 
         st.divider()
         st.markdown("---")
