@@ -1,3 +1,7 @@
 streamlit
 google-genai
 openai
+pypdf
+python-docx
+pandas
+pillow
